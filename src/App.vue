@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Header title="Task Maker"/>
+    <Header title="Task Maker" />
     <Tasks :tasks="tasks" />
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
   },
   data() {
     return {
@@ -33,6 +33,12 @@ export default {
         text: "Meeting",
         day: 'March 19',
         reminder: true,
+      },
+      {
+        id: 4,
+        text: "School",
+        day: 'March 19',
+        reminder: false,
       },
     ]
   }
