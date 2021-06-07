@@ -10,6 +10,11 @@
     props: {
       text: String,
       color: String,
+    },
+    methods: {
+      onClick() {
+        console.log('click')
+      }
     }
   }
 </script>
