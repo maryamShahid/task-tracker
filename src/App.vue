@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-    <Header title="Task Maker" />
-    <AddTask />
+    <Header @toggle-add-task="toggleAddTask" title="Task Maker" />
+    <div v-show="showAddTask">
+    <AddTask @add-task="addTask" />
+    </div>
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
@@ -20,10 +22,17 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false
     }
   },
   methods: {
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask
+    },
+    addTask(task) {
+      this.tasks = [...this.tasks, task]
+    },
     deleteTask(id) {
       if (confirm('Are you sure?')) {
         this.tasks = this.tasks.filter((task) => task.id !== id)
@@ -37,20 +46,20 @@ export default {
     this.tasks = [
       {
         id: 3,
-        text: "Appointment",
+        text: "Dentist Appointment",
         day: 'March 6',
         reminder: true,
       },
       {
         id: 4,
-        text: "Meeting",
-        day: 'March 19',
+        text: "Birthday Planner",
+        day: 'August 16',
         reminder: true,
       },
       {
         id: 1,
-        text: "School Job",
-        day: 'March 19',
+        text: "Guitar Lesson",
+        day: 'March 28',
         reminder: false,
       },
     ]
