@@ -1,4 +1,4 @@
-# vue-practice
+# Task Tracker - Vue
 
 ## Project setup
 ```
