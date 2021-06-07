@@ -3,16 +3,19 @@
     <Header
         title="Task Maker"
     />
+    <Tasks :tasks="tasks"/>
   </div>
 </template>
 
 <script>
-
 import Header from './components/Header'
+import Tasks from "@/components/Tasks";
+
 export default {
   name: 'App',
   components: {
     Header,
+    Tasks,
   },
   data() {
     return {
@@ -32,7 +35,7 @@ export default {
         text: "Meeting",
         day: 'March 19',
         reminder: true,
-      }
+      },
     ]
   }
 
