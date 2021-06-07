@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header title="Task Maker" />
-    <Tasks :tasks="tasks" />
+    <Tasks @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
       tasks: []
     }
   },
+  methods: {
+    deleteTask(id) {
+      console.log('task', id)
+    },
+  },
   created() {
     this.tasks = [
       {
@@ -35,8 +40,8 @@ export default {
         reminder: true,
       },
       {
-        id: 4,
-        text: "School",
+        id: 1,
+        text: "School Job",
         day: 'March 19',
         reminder: false,
       },
